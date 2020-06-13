@@ -53,6 +53,9 @@ L3: Build the source (more depth)
 	"Containers build upon other containers, each layer contains all aspects of parent layers. An important part of working with containers
 	if figuring out which one you want to use. For example: the px4-dev-ros-melodic containers adds ROS to px4-dev-simulation-bionic, which
 	itself adds simulation to px4-dev-base-bionic."
+	"All interaction of the container with the host is prohibited, except as explicity enabled by command line paramaters. For example: it
+	is very common for a directory in the user domain on the host be mapped to a directory on the container through the '-v' paramater, and 
+	it is very common to open a network port via the '-p' parameter."
 	"For more information on Docker see ref: Docker."
 	
 	- Demo: Build PX4 with a container
@@ -68,7 +71,7 @@ L3: Build the source (more depth)
 		sudo groupadd docker
 		sudo usermod -aG docker $USER
 		Log out/in
-	4) Select which container you wish to use
+	4) Select which container you wish to usepx4 
 		Go to ref:'PX4 Containers", select your container
 		We'll use 'px4-dev-simulation-bionic', click on that link
 		Notice the 'Docker Pull Command', you can run this command on your command line to download and install the container, but this 
@@ -92,10 +95,45 @@ L3: Build the source (more depth)
 		"On the host (not in the container) navigae to 'src_d', you will see the build directory and output have been created."
 
 L4: Modify the Source (most depth)
+
 	- IDE
-	"Visual Studio Code"
+	"Why an IDE?"
+	" 1) Intellisense, 2) click build + error list, 3) click debug + single step, 4) Git integration, 5) lots of tools, 6) same IDE for everything, for example ROS.
+	"A few options available on Winows, Linux, and Mac. My preferred IDE is Visual Studio Code on Ubuntu so well demonstrate that here."
+	- Demo: Build PX4 for Visual Studio Code
+		1) Git a copy of PX4 source
+		Create a directory for the PX4 source, then Git
+		mkdir src_vsc
+		cd src_d
+		git clone https://github.com/PX4/Firmware.git
+		2) Install VSCode. See rfe:'Install Visual Studio Code'
+		3) Open VSC, open 'folder' '~/src_vsc/Firmware'. 
+		"A lot of config happens, wait, don't break out. Breaking out early will require VSC restart"
+		"If 'This workspace has extension recommendations' prompt appears in lower right, click 'Show Recommendations', select all except 'CMake'.
+		"More config happens, wait, don't break out."
+		4) If [PX4 detect] is not active kit, change to [PX4 detect]. Wait for config to finish.
+		5) Select build variant, we'll use '[px4_sitl]' here. Wait for config to finish.
+		6) Click 'Build'. A standard build ensues. If problems happen then messages will be seen. Sometimes the 'problems' tab is the best view, 
+		sometimes the 'output' tab is the best view. You can double click in either, you may be taken to the problem code.'
 	- Debugging 
+		1) Set a breakpoint at '~/src-vsc/Firmware/platforms/posix/src/p44/common/main.cpp' in main() on an executable line.
+		2) Click the Debug icom in the left horizontal toolbar. Click on the '		Start Debugging' green triangle in the upper left dropdown."
+		*  if VSCode brings up dialog with "Errors exist after running preLaunchTask 'gazebo.iris', 
+		and 'terminal' tab shows 'Could not open file[/home/<you>/src_vsc/Firmware/Tools/sitl_gazebo/worlds/iris.world]' 
+		grab a copy from /home/<you>/src/Firmware/Tools/sitl_gazebo/worlds/iris.world. Then restart VSC.
+		3) If all is well you should see a) a build, b) a startup sequence, c) code halting on the breakpoint. At thispoint you can singlestep, 
+		add and remove breakpoints, inspect variables, etc.
+	-Debugging hardware
+		"won't go into detail, but Ill mention some tooling. See ref:'JTAG Debugging'.
+		Segger (my choice)
+		Olimex
+		Dronecode JTAG (easy because of header)
+		Babel UAVCAN
 	- Logs
+		ref: 'Logging'
+		*** needs a lot of expansion, this is an area which I feel needs consolidation, docs are all over the place.
+	- Console
+		ref:'Debug Console'
 
 L5: Contribute (brief)
 	- Dev
@@ -106,6 +144,7 @@ L5: Contribute (brief)
 Appendix:
 
 Links: Lots of links to resources
+
 <see Links.md>
 
 Ubuntu Toolchain : https://dev.px4.io/v1.9.0/en/setup/dev_env_linux_ubuntu.html
@@ -114,4 +153,12 @@ Docker: https://www.docker.com/
 
 PX4 Containers: https://github.com/PX4/containers/
 
+J-Link Visual Studio Code: https://wiki.segger.com/J-Link_Visual_Studio_Code
 
+Install Visual Studio Code: https://code.visualstudio.com/Download
+
+JTAG Debugging: https://dev.px4.io/master/en/debug/swd_debug.html
+
+Debug Console: https://dev.px4.io/master/en/debug/consoles.html
+
+Logging: https://dev.px4.io/master/en/log/logging.html
