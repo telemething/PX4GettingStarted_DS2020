@@ -12,13 +12,39 @@ What do you want to do with PX4?
 	L4: Modify the source
 	L5: Contribute
 
-L1: Operate a PX4 Vehicle (brief)
-	"Scenario: You want to operate a PX4 vehicle. It is already built and can maneuver at some level"
-	Tasks: Pair Radio, Tune (maybe).
+L1: Operate a PX4 Vehicle (brief)(probably move to appendix)
 
-L2: Build a PX4 vehicle  (brief)
+	"Scenario: You want to operate a PX4 vehicle. It is already built and can (probably) maneuver at some level"
+	Tasks: Pair Radio, Configure, Tune (maybe).
+	
+	- Radio Controller
+	"A radio controller is the handheld unit which you use to communicate with the mobile frame during field operations."
+	"While it is possible to do without an RC (by use of control from an onboard companion computer), you will
+	probably need or want to use a radio controller."
+	"A radio controller communicates with the flight controller via a tranceiver which is physically connected with the 
+	flight controller. The controller and on board tranciever communicate two way, exchanging commands and telemetry."
+	"Prior to flight the controller and tranceiver must be paired to one another."  
+	See ref:Radio Controller
+	
+	- QGroundControl
+	"QGroundControl is a ground station, which runs on a computer separate from the PX4 mobile platform. You can use it 
+	to peform pretty much any task you need to interact with the flight controller and most other hardware mounted on 
+	the mobile platform."
+	"There are several operations which need to be performed prior to flight. The standard procedure is to connect
+	the flight controller (on the mobile frame) to a computer via USB and then use QGroundControl to perform those
+	operations. Some typical things to perform: airframe selection, sensor orientation calibration, radio channel 
+	mapping." 
+	See ref:QGroundcontrol
+	
+	- Steps:
+
+L2: Build a PX4 vehicle  (brief)(probably move to appendix)
+
 	"Scenario: You want to build a PX4 vehicle. You will acquire physical components and assemble them. You might want to update 
 	the PX4 image on the hardware"
+	"A PX4 flight controller pretty much always comes delivered with PX4 installed."
+	"If you want to change that version then follow the instructions at ref:'Firmware Update'"
+		
 
 L3: Build the source (more depth)
 	"Scenario:  You want to build PX4 from source"
@@ -190,6 +216,12 @@ Devcall: https://dev.px4.io/master/en/contribute/dev_call.html
 PX4 Main site: https://px4.io/
 
 Ubuntu Toolchain : https://dev.px4.io/v1.9.0/en/setup/dev_env_linux_ubuntu.html
+
+QGroundcontrol http://qgroundcontrol.com/
+
+Firmware Update: https://docs.qgroundcontrol.com/en/SetupView/Firmware.html
+
+Radio Controller: https://docs.px4.io/master/en/getting_started/rc_transmitter_receiver.html
 
 Docker: https://www.docker.com/
 
