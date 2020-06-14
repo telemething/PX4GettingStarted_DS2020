@@ -1,21 +1,11 @@
 # PX4GettingStarted_DS2020
 Getting Started With PX4
-"This is a high level overview of how to get started with PX4, hoping to accommodate several different levels of engagement".
-
-What is PX4 (very brief)
-"You probably already know this …"
-	Hardware
-	Software
-
-What is the PX4 community? (very brief)
-	Dronecode
-	Websites
-	Forum
-	DevCall
-	Etc
+	"This is a high level overview of how to get started with PX4, hoping to accommodate several different levels of engagement".
+	"For the sake of brevity we won't cover 'what is PX4' or 'what is the PX4 community', but those subjects are covered
+	in the appendix. 
 
 What do you want to do with PX4?
-"knowledge domains build in layers"
+	"knowledge domains build in layers"
 	L1: Operate a PX4 vehicle
 	L2: Build a PX4 vehicle
 	L3: Build the Source
@@ -23,16 +13,17 @@ What do you want to do with PX4?
 	L5: Contribute
 
 L1: Operate a PX4 Vehicle (brief)
-"Scenario: You want to operate a PX4 vehicle. It is already built and can maneuver at some level"
-Tasks: Pair Radio, Tune (maybe).
+	"Scenario: You want to operate a PX4 vehicle. It is already built and can maneuver at some level"
+	Tasks: Pair Radio, Tune (maybe).
 
 L2: Build a PX4 vehicle  (brief)
-"Scenario: You want to build a PX4 vehicle. You will acquire physical components and assemble them. You might want to update the PX4 image on the hardware"
+	"Scenario: You want to build a PX4 vehicle. You will acquire physical components and assemble them. You might want to update 
+	the PX4 image on the hardware"
 
 L3: Build the source (more depth)
-"Scenario:  You want to build PX4 from source"
-"Big step up in complexity"
-"choose toolchain or container"
+	"Scenario:  You want to build PX4 from source"
+	"Big step up in complexity"
+	"choose toolchain or container"
 
 	- Toolchain
 	"A toolchain is all the stuff youll need to build for a particular target"
@@ -141,11 +132,62 @@ L5: Contribute (brief)
 		Self-Start or Find Work?
 	- Flight Test
 
-Appendix:
+------ Appendix: ------
+
+What is PX4 (very brief)
+	
+	- Software
+		"PX4 is flight control software which supports a number of platforms: Fixed wing, rotor, rover, and submarine."
+		See ref:'PX4 Airframes'
+		"BSD open source, created by Lorenz Meier and team in 2008 while at ETH. Hosted on Github."
+		See ref:'PX4 History'
+		"Anyone is free to obtain, modify, and deploy PX4."
+	- Hardware
+		"Pixhawk standard: community support, full compatability.
+		Manufacturer supported: shared support, variations in compatibility.
+		Unsupported: manufacturer only support, variation in compatibility."
+		See ref:'PX4 Hardware'
+		
+
+What is the PX4 community? (very brief)
+
+	Dronecode
+		"PX4 is part of Dronecode, and Dronecode is part of the Linux Foundation. Dronecode's mission is to support 
+		open source drone software"
+		See ref:Dronecode
+	Website
+		"PX4 main site"
+		see ref:'PX4 Main site'
+	Slack
+		"70 channels, something for everyone. Good, but messages time out and disappear quickly on free license."
+		See ref:Slack	Forum
+		"Traditional message board. Messages don't expire."
+		see ref:Forum
+	DevCall
+		"Standard Scrum, moves quickly, not for chit-chat. A good place for newcomers to observe and get a feel 
+		for what's what and look for opportunities to contribute. Hosted on Zoom".
+		See ref:Devcall
+	Etc
 
 Links: Lots of links to resources
 
 <see Links.md>
+
+PX4 Airframes: https://docs.px4.io/master/en/airframes/airframe_reference.html
+
+PX4 History: https://auterion.com/the-history-of-pixhawk/
+
+PX4 Hardware: https://px4.io/ecosystem/compatible-hardware/
+
+Dronecode: https://www.dronecode.org/
+
+Slack: https://slack.px4.io/
+
+Forum: https://discuss.px4.io/
+
+Devcall: https://dev.px4.io/master/en/contribute/dev_call.html
+
+PX4 Main site: https://px4.io/
 
 Ubuntu Toolchain : https://dev.px4.io/v1.9.0/en/setup/dev_env_linux_ubuntu.html
 
@@ -162,3 +204,5 @@ JTAG Debugging: https://dev.px4.io/master/en/debug/swd_debug.html
 Debug Console: https://dev.px4.io/master/en/debug/consoles.html
 
 Logging: https://dev.px4.io/master/en/log/logging.html
+
+
