@@ -28,8 +28,8 @@ L1: Operate a PX4 Vehicle (brief)(probably move to appendix)
 	
 	- QGroundControl
 	"QGroundControl is a ground station, which runs on a computer separate from the PX4 mobile platform. You can use it 
-	to peform pretty much any task you need to interact with the flight controller and most other hardware mounted on 
-	the mobile platform."
+	to peform pretty much any task you need to configure the flight controller and most other hardware mounted on 
+	the mobile platform. In addition to configuration the FC can also be used for monitoring and mission tasks."
 	"There are several operations which need to be performed prior to flight. The standard procedure is to connect
 	the flight controller (on the mobile frame) to a computer via USB and then use QGroundControl to perform those
 	operations. Some typical things to perform: airframe selection, sensor orientation calibration, radio channel 
@@ -50,6 +50,7 @@ L3: Build the source (more depth)
 	"Scenario:  You want to build PX4 from source"
 	"Big step up in complexity"
 	"choose toolchain or container"
+	"although using a container 
 
 	- Toolchain
 	"A toolchain is all the stuff youll need to build for a particular target"
@@ -59,6 +60,19 @@ L3: Build the source (more depth)
 	so I need to build ROS up from source too, therefore can't use the ROS convenience script. The same goes for Gazebo. I've run into so many 
 	problems with conflicting OpneCV that I always just install the whole chain manually (unless containers!)."
 	"For guidance on both convenience scripts and manual installation see ref:'Ubuntu Toolchain'"
+	
+	- Demo: Build PX4
+		"Here we demonstrate building an image for SITL simulation"
+		1) Install the toolchain
+		2) Git a copy of PX4 source
+			Create a directory for the PX4 source, then Git
+			mkdir src
+			cd src
+			git clone https://github.com/PX4/Firmware.git --recursive
+		3) Navigate to the share on the container, build PX4
+			cd Firmware
+			make px4_sitl_default
+		"The build process commences. When complete, the build output will be present under ~/src/Firmware/build/"		
 	 
 	- Container
 	"Docker Containers"
@@ -80,7 +94,7 @@ L3: Build the source (more depth)
 		Create a directory for the PX4 source, then Git
 		mkdir src_d
 		cd src_d
-		git clone https://github.com/PX4/Firmware.git
+		git clone https://github.com/PX4/Firmware.git --recursive
 		cd Firmware
 	2) Install Docker
 		See ref: Docker
@@ -109,7 +123,7 @@ L3: Build the source (more depth)
 		make px4_sitl_default
 		"The conventional build process commences. When complete, the build directory will be present on the share on the host!. You 
 		can exit the container or leave it running."
-		"On the host (not in the container) navigae to 'src_d', you will see the build directory and output have been created."
+		"On the host (not in the container) navigate to 'src_d', you will see the build directory and output have been created."
 
 L4: Modify the Source (most depth)
 
@@ -117,12 +131,13 @@ L4: Modify the Source (most depth)
 	"Why an IDE?"
 	" 1) Intellisense, 2) click build + error list, 3) click debug + single step, 4) Git integration, 5) lots of tools, 6) same IDE for everything, for example ROS.
 	"A few options available on Winows, Linux, and Mac. My preferred IDE is Visual Studio Code on Ubuntu so well demonstrate that here."
+	
 	- Demo: Build PX4 for Visual Studio Code
 		1) Git a copy of PX4 source
 		Create a directory for the PX4 source, then Git
 		mkdir src_vsc
 		cd src_d
-		git clone https://github.com/PX4/Firmware.git
+		git clone https://github.com/PX4/Firmware.git --recursive
 		2) Install VSCode. See rfe:'Install Visual Studio Code'
 		3) Open VSC, open 'folder' '~/src_vsc/Firmware'. 
 		"A lot of config happens, wait, don't break out. Breaking out early will require VSC restart"
