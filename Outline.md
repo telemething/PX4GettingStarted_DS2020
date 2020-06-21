@@ -64,6 +64,7 @@ L3: Build the source (more depth)
 	- Demo: Build PX4
 		"Here we demonstrate building an image for SITL simulation"
 		1) Install the toolchain
+			<see appendix>
 		2) Git a copy of PX4 source
 			Create a directory for the PX4 source, then Git
 			mkdir src
@@ -71,7 +72,9 @@ L3: Build the source (more depth)
 			git clone https://github.com/PX4/Firmware.git --recursive
 		3) Navigate to the share on the container, build PX4
 			cd Firmware
-			make px4_sitl_default
+			make px4_sitl jmavsim
+		4) If all goes well a JMavSim will appear and the console will open the PX4 shell. Give the shell a moment to initialize, then takeoff.
+			commander takeoff
 		"The build process commences. When complete, the build output will be present under ~/src/Firmware/build/"		
 	 
 	- Container
@@ -114,7 +117,7 @@ L3: Build the source (more depth)
 			-v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 			-e DISPLAY=:0 \
 			-p 14556:14556/udp \
-			--name=px4sim px4io/px4io/px4-dev-simulation-bionic bash
+			--name=px4sim px4io/px4-dev-simulation-bionic bash
 		"Notice PX4 source dir: '~/src_d', container name: 'px4sim', and image name: 'px4io/px4io/px4-dev-simulation-bionic'. 
 		"At this point the container images will download, install, and run. Your prompt will change, which indiates that you are now 
 		running in the container'"
