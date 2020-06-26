@@ -70,7 +70,7 @@ L3: Build the source (more depth)
 			mkdir src
 			cd src
 			git clone https://github.com/PX4/Firmware.git --recursive
-		3) Navigate to the share on the container, build PX4
+		3) Navigate to the Firware dir, build PX4
 			cd Firmware
 			make px4_sitl jmavsim
 		4) If all goes well a JMavSim will appear and the console will open the PX4 shell. Give the shell a moment to initialize, then takeoff.
@@ -122,7 +122,7 @@ L3: Build the source (more depth)
 		"At this point the container images will download, install, and run. Your prompt will change, which indiates that you are now 
 		running in the container'"
 	6) Navigate to the share on the container, build PX4
-		cd ~/src/Firmware
+		cd src/firmware
 		make px4_sitl_default
 		"The conventional build process commences. When complete, the build directory will be present on the share on the host!. You 
 		can exit the container or leave it running."
@@ -217,21 +217,21 @@ Links: Lots of links to resources
 
 <see Links.md>
 
-PX4 Airframes: https://docs.px4.io/master/en/airframes/airframe_reference.html
+- PX4 Airframes: https://docs.px4.io/master/en/airframes/airframe_reference.html
 
-PX4 History: https://auterion.com/the-history-of-pixhawk/
+- PX4 History: https://auterion.com/the-history-of-pixhawk/
 
-PX4 Hardware: https://px4.io/ecosystem/compatible-hardware/
+- PX4 Hardware: https://px4.io/ecosystem/compatible-hardware/
 
-Dronecode: https://www.dronecode.org/
+- Dronecode: https://www.dronecode.org/
 
-Slack: https://slack.px4.io/
+- Slack: https://slack.px4.io/
 
-Forum: https://discuss.px4.io/
+- Forum: https://discuss.px4.io/
 
-Devcall: https://dev.px4.io/master/en/contribute/dev_call.html
+- Devcall: https://dev.px4.io/master/en/contribute/dev_call.html
 
-PX4 Main site: https://px4.io/
+- PX4 Main site: https://px4.io/
 
 Ubuntu Toolchain : https://dev.px4.io/v1.9.0/en/setup/dev_env_linux_ubuntu.html
 
